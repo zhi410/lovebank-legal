@@ -25,7 +25,7 @@
     <!-- ======================= 繁體中文 ======================= -->
     <article class="card" data-lang="zh">
       <h1>服務條款</h1>
-      <p class="muted">生效日期：2026 年 11 月 17 日</p>
+      <p class="muted">生效日期：2026 年 11 月 18 日</p>
       <p>歡迎使用 LoveBank（以下稱「本服務」）。當你註冊或使用本服務，即表示你已閱讀、瞭解並同意本條款、<a href="privacy.html">隱私權政策</a>與下方之虛擬點數免責聲明。</p>
 
       <h2>1. 服務說明</h2>
@@ -46,6 +46,18 @@
           <li>虛擬點數<strong>不可</strong>兌換、購買、出售、轉讓或提領為真實貨幣、商品或服務，亦不得作為任何交易或債務之依據。</li>
           <li>伴侶間依虛擬點數所做的約定（例如「兌換願望」）純屬雙方私下互動，本服務不保證其履行，亦不介入任何糾紛。</li>
           <li>VIP 訂閱僅解鎖 App 功能，<strong>不會</strong>增加任何虛擬點數。</li>
+          <li>VIP 的「真實共同記帳」功能請另見下方第 3-1 條說明。</li>
+        </ul>
+      </div>
+
+      <h2 id="expense">3-1. 真實共同記帳功能說明（VIP）</h2>
+      <div class="notice">
+        <ul>
+          <li>「真實共同記帳（NT$）」僅為你與伴侶之間日常收支的<strong>計算與記帳輔助工具</strong>，協助記錄支出、計算分攤金額與結清差額。</li>
+          <li>LoveBank <strong>不經手、不保管、不轉移</strong>任何真實資金，也不提供支付、匯款、代收代付或任何金融服務。「一鍵結清」僅將帳目標記為已結清，不會產生任何實際金流。</li>
+          <li>實際資金轉移須由使用者透過各自合法之金融機構或支付服務自行完成，相關風險與責任由使用者自行承擔。</li>
+          <li>分攤金額依使用者輸入之資料計算，僅供參考；雙方對金額有爭議時，應自行協商，本服務不介入。</li>
+          <li>此功能與虛擬寵愛幣完全獨立，記帳金額不會轉換為寵愛幣，寵愛幣亦不可用於記帳或結清。</li>
         </ul>
       </div>
 
@@ -83,7 +95,7 @@
     <!-- ======================= English ======================= -->
     <article class="card" data-lang="en">
       <h1>Terms of Service</h1>
-      <p class="muted">Effective date: November 17, 2026</p>
+      <p class="muted">Effective date: November 18, 2026</p>
       <p>Welcome to LoveBank (“the Service”). By registering for or using the Service, you agree to these Terms, our <a href="privacy.html">Privacy Policy</a> and the Virtual Points Disclaimer below.</p>
 
       <h2>1. The Service</h2>
@@ -104,6 +116,18 @@
           <li>Virtual points <strong>cannot</strong> be exchanged, bought, sold, transferred or withdrawn for real money, goods or services, and may not be used as the basis for any real transaction or debt.</li>
           <li>Promises between partners based on points (e.g. “redeem a wish”) are private arrangements. We do not guarantee them or mediate disputes.</li>
           <li>A VIP subscription only unlocks app features and does <strong>not</strong> grant any points.</li>
+          <li>For the VIP “Shared Expenses” feature, see section 3-1 below.</li>
+        </ul>
+      </div>
+
+      <h2 id="expense-en">3-1. Shared Expense Tracker (VIP)</h2>
+      <div class="notice">
+        <ul>
+          <li>The “Shared Expenses (NT$)” feature is only a <strong>calculation and record-keeping aid</strong> for everyday spending between you and your partner: logging expenses, calculating each person’s share and settling balances.</li>
+          <li>LoveBank does <strong>not</strong> handle, hold or transfer any real money and provides no payment, remittance or financial services. “Settle up” only marks records as settled; no funds move.</li>
+          <li>Any actual transfer of money must be made by users themselves through their own licensed financial institutions or payment services, at their own risk.</li>
+          <li>Split amounts are calculated from the data users enter and are for reference only. Partners are responsible for resolving any disagreement themselves.</li>
+          <li>This feature is fully separate from virtual pamper points: expense amounts are never converted into points, and points cannot be used to record or settle expenses.</li>
         </ul>
       </div>
 
@@ -145,7 +169,7 @@
       function jump() {
         if (document.documentElement.lang !== 'en') return;
         var h = location.hash.replace('#', '');
-        if (h === 'disclaimer' || h === 'subscription') {
+        if (h === 'disclaimer' || h === 'subscription' || h === 'expense') {
           var el = document.getElementById(h + '-en');
           if (el) el.scrollIntoView();
         }
