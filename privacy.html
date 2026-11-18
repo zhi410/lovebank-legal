@@ -7,6 +7,18 @@
   <meta name="description" content="LoveBank 隱私權政策 / Privacy Policy">
   <link rel="stylesheet" href="style.css">
   <script src="lang.js"></script>
+  <script>
+    // privacy.html#security 在英文模式自動捲到英文段落
+    (function () {
+      function jump() {
+        if (document.documentElement.lang !== 'en' || location.hash !== '#security') return;
+        var el = document.getElementById('security-en');
+        if (el) el.scrollIntoView();
+      }
+      window.addEventListener('load', jump);
+      window.addEventListener('hashchange', jump);
+    })();
+  </script>
 </head>
 <body>
   <header class="top">
@@ -53,7 +65,7 @@
       <h2>3. 資料分享對象</h2>
       <p>你的情侶金庫資料只會分享給<strong>與你配對的另一半</strong>。我們不會出售你的個人資料。為提供服務，我們委託下列處理者：</p>
       <ul>
-        <li><strong>Supabase</strong>（資料庫與身分驗證，伺服器位於新加坡）</li>
+        <li><strong>Supabase</strong>（資料庫與身分驗證，託管於 Amazon Web Services 新加坡資料中心）</li>
         <li><strong>RevenueCat</strong>（訂閱狀態管理）</li>
         <li><strong>Apple / Google</strong>（App 內購付款處理）</li>
         <li><strong>Apple Push Notification service</strong>（推播通知傳送：裝置 Token 與通知內容）</li>
@@ -61,8 +73,16 @@
       <p>共同記帳的即時匯率由 App 直接向公開匯率服務 <strong>open.er-api.com</strong> 查詢，查詢內容僅為幣別代碼（例如 TWD），<strong>不含</strong>任何個人資料或帳目內容。</p>
       <p>除法律要求外，我們不會向其他第三方揭露你的資料。</p>
 
-      <h2>4. 資料保存與安全</h2>
-      <p>資料以加密連線（HTTPS/TLS）傳輸，並以資料列層級安全（Row Level Security）隔離不同情侶的資料。我們在你的帳號存續期間保存資料；帳號刪除後，相關資料將立即自資料庫移除（備份會依供應商週期於有限期間內輪替刪除）。</p>
+      <h2 id="security">4. 資料儲存與安全性</h2>
+      <div class="notice">
+        <ul>
+          <li><strong>雲端託管位置：</strong>資料儲存於 Supabase 雲端資料庫，底層為 Amazon Web Services（AWS）亞太（新加坡）區域 <code>ap-southeast-1</code>。託管供應商 Supabase 已通過 SOC 2 Type II 安全認證。更換手機時，登入原帳號即可從雲端還原資料。</li>
+          <li><strong>雙人資料隔離：</strong>資料庫啟用資料列層級安全（Row Level Security, RLS）。點數、信用額度、交易明細、共同記帳、盲盒與保單等資料，僅限同一共享金庫的你與伴侶讀取，其他使用者無法存取；所有點數異動皆由伺服器端驗證。</li>
+          <li><strong>加密：</strong>所有資料以 TLS 加密連線（HTTPS）傳輸；雲端靜態資料以 AES-256 加密儲存。</li>
+          <li><strong>不涉及真實金融資料：</strong>本服務不會索取、儲存或串接任何真實銀行帳號、信用卡號或密碼；VIP 訂閱付款由 Apple App Store / Google Play 處理。</li>
+          <li><strong>保存期間：</strong>我們在你的帳號存續期間保存資料；帳號刪除後，相關資料將立即自資料庫移除（供應商備份依週期於有限期間內輪替刪除）。</li>
+        </ul>
+      </div>
 
       <h2>5. 刪除帳號與你的權利</h2>
       <ul>
@@ -113,7 +133,7 @@
       <h2>3. Sharing</h2>
       <p>Your vault data is shared only with <strong>your paired partner</strong>. We never sell personal data. We use these processors to run the Service:</p>
       <ul>
-        <li><strong>Supabase</strong> (database and authentication, servers in Singapore)</li>
+        <li><strong>Supabase</strong> (database and authentication, hosted on Amazon Web Services in Singapore)</li>
         <li><strong>RevenueCat</strong> (subscription management)</li>
         <li><strong>Apple / Google</strong> (in-app purchase processing)</li>
         <li><strong>Apple Push Notification service</strong> (notification delivery: device token and notification content)</li>
@@ -121,8 +141,16 @@
       <p>Live exchange rates for shared expenses are fetched by the app directly from the public service <strong>open.er-api.com</strong>. Only a currency code (e.g. TWD) is sent — <strong>no</strong> personal data or expense details.</p>
       <p>We do not disclose your data to other third parties unless required by law.</p>
 
-      <h2>4. Retention &amp; Security</h2>
-      <p>Data is transmitted over encrypted connections (HTTPS/TLS) and isolated per couple with Row Level Security. We keep data while your account exists. When you delete your account, related data is removed from our database immediately (provider backups rotate out within a limited period).</p>
+      <h2 id="security-en">4. Data Storage &amp; Security</h2>
+      <div class="notice">
+        <ul>
+          <li><strong>Where data is hosted:</strong> data is stored in a Supabase cloud database running on Amazon Web Services (AWS) in the Asia Pacific (Singapore) region, <code>ap-southeast-1</code>. Our hosting provider, Supabase, is SOC 2 Type II certified. When you switch phones, sign in to restore your data from the cloud.</li>
+          <li><strong>Couple-only isolation:</strong> the database enforces Row Level Security (RLS). Points, credit limits, transactions, shared expenses, gacha cards and insurance policies can only be read by you and your partner in the same shared vault — no other user can access them. Every balance change is validated on the server.</li>
+          <li><strong>Encryption:</strong> all data is transmitted over TLS-encrypted connections (HTTPS) and encrypted at rest with AES-256.</li>
+          <li><strong>No real financial data:</strong> the Service never asks for, stores or connects to real bank accounts, card numbers or passwords. VIP subscriptions are paid through the Apple App Store / Google Play.</li>
+          <li><strong>Retention:</strong> we keep data while your account exists. When you delete your account, related data is removed from our database immediately (provider backups rotate out within a limited period).</li>
+        </ul>
+      </div>
 
       <h2>5. Account Deletion &amp; Your Rights</h2>
       <ul>
