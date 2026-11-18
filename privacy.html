@@ -32,7 +32,10 @@
       <ul>
         <li><strong>帳號資料：</strong>Email、加密後的密碼、你設定的暱稱與頭像 Emoji。</li>
         <li><strong>情侶金庫資料：</strong>配對邀請碼、紀念日、虛擬點數餘額、信用額度、自訂價目表、交易明細、審核紀錄與調額申請（含你填寫的理由文字）。</li>
-        <li><strong>共同記帳資料（VIP）：</strong>你與伴侶輸入的支出項目名稱、金額、分類、付款者、分攤方式、日期、備註與結清紀錄。我們<strong>不會</strong>取得你的銀行帳戶、信用卡或任何真實支付資訊。</li>
+        <li><strong>共同記帳資料（VIP）：</strong>你與伴侶輸入的支出項目名稱、金額、幣別、記帳當時的匯率、自訂分類、付款者、分攤方式、日期、備註與結清紀錄。我們<strong>不會</strong>取得你的銀行帳戶、信用卡或任何真實支付資訊。</li>
+        <li><strong>見面計畫：</strong>你們設定的下次見面日期、見面夢想標題與見面基金點數。</li>
+        <li><strong>時區與語言偏好：</strong>App 會讀取裝置設定中的時區名稱（例如 Asia/Taipei，<strong>不是</strong>位置資訊）與你選擇的介面語言，用來向伴侶顯示你的當地時間，並在你的深夜時段將推播靜音送達、以你的語言發送通知。</li>
+        <li><strong>推播通知 Token：</strong>你允許通知後，Apple 會核發一組裝置推播 Token，我們用它向你的裝置傳送 App 通知。Token 只存在伺服器端，你的伴侶無法讀取；登出或刪除帳號時即移除。</li>
         <li><strong>訂閱資料：</strong>透過 RevenueCat 取得的訂閱狀態與到期日。我們<strong>不會</strong>取得或儲存你的信用卡號等付款資訊，付款由 Apple App Store 或 Google Play 處理。</li>
         <li><strong>技術資料：</strong>為維持服務運作所必要的連線紀錄（例如 IP 位址、請求時間），由我們的雲端服務供應商處理。</li>
       </ul>
@@ -43,6 +46,7 @@
         <li>提供帳號登入、情侶配對、點數記錄與即時同步等核心功能。</li>
         <li>讓你與已配對的另一半看到共享金庫中的資料，並計算共同記帳的分攤與結清金額。</li>
         <li>確認 VIP 訂閱狀態並於情侶雙方間共享。</li>
+        <li>傳送審核申請、紅包、額度與見面基金等推播通知；依收件人的時區於深夜靜音送達。</li>
         <li>回覆你的客服需求、維護服務安全與防止濫用。</li>
       </ul>
 
@@ -52,7 +56,9 @@
         <li><strong>Supabase</strong>（資料庫與身分驗證，伺服器位於新加坡）</li>
         <li><strong>RevenueCat</strong>（訂閱狀態管理）</li>
         <li><strong>Apple / Google</strong>（App 內購付款處理）</li>
+        <li><strong>Apple Push Notification service</strong>（推播通知傳送：裝置 Token 與通知內容）</li>
       </ul>
+      <p>共同記帳的即時匯率由 App 直接向公開匯率服務 <strong>open.er-api.com</strong> 查詢，查詢內容僅為幣別代碼（例如 TWD），<strong>不含</strong>任何個人資料或帳目內容。</p>
       <p>除法律要求外，我們不會向其他第三方揭露你的資料。</p>
 
       <h2>4. 資料保存與安全</h2>
@@ -86,7 +92,10 @@
       <ul>
         <li><strong>Account data:</strong> email, hashed password, your nickname and avatar emoji.</li>
         <li><strong>Couple vault data:</strong> invite code, anniversary, virtual point balances, credit limits, custom menu items, transaction history, approvals and limit-change requests (including any reason text you enter).</li>
-        <li><strong>Shared expense data (VIP):</strong> expense titles, amounts, categories, payer, split method, dates, notes and settlement records that you and your partner enter. We do <strong>not</strong> access your bank accounts, cards or any real payment information.</li>
+        <li><strong>Shared expense data (VIP):</strong> expense titles, amounts, currencies, the exchange rate at the time of entry, custom categories, payer, split method, dates, notes and settlement records that you and your partner enter. We do <strong>not</strong> access your bank accounts, cards or any real payment information.</li>
+        <li><strong>Meet-up plans:</strong> the next meet-up date, goal title and meet-up fund points you set.</li>
+        <li><strong>Time zone &amp; language:</strong> the app reads your device’s time zone name (e.g. Asia/Taipei — this is <strong>not</strong> location data) and your chosen app language, to show your partner your local time, deliver notifications silently during your late-night hours, and send notifications in your language.</li>
+        <li><strong>Push notification token:</strong> if you allow notifications, Apple issues a device push token that we use to deliver app notifications to your device. It is stored server-side only, is never visible to your partner, and is removed when you sign out or delete your account.</li>
         <li><strong>Subscription data:</strong> subscription status and expiry date obtained via RevenueCat. We do <strong>not</strong> receive or store your card number or payment details; payments are processed by the Apple App Store or Google Play.</li>
         <li><strong>Technical data:</strong> connection logs necessary to operate the Service (e.g. IP address, request time), processed by our cloud providers.</li>
       </ul>
@@ -97,6 +106,7 @@
         <li>To provide sign-in, couple pairing, point tracking and real-time sync.</li>
         <li>To let you and your paired partner see your shared vault and calculate shared-expense splits and balances.</li>
         <li>To verify VIP subscription status and share it between both partners.</li>
+        <li>To send push notifications for requests, red packets, limits and the meet-up fund, delivered silently during the recipient’s late-night hours.</li>
         <li>To respond to support requests, keep the Service secure and prevent abuse.</li>
       </ul>
 
@@ -106,7 +116,9 @@
         <li><strong>Supabase</strong> (database and authentication, servers in Singapore)</li>
         <li><strong>RevenueCat</strong> (subscription management)</li>
         <li><strong>Apple / Google</strong> (in-app purchase processing)</li>
+        <li><strong>Apple Push Notification service</strong> (notification delivery: device token and notification content)</li>
       </ul>
+      <p>Live exchange rates for shared expenses are fetched by the app directly from the public service <strong>open.er-api.com</strong>. Only a currency code (e.g. TWD) is sent — <strong>no</strong> personal data or expense details.</p>
       <p>We do not disclose your data to other third parties unless required by law.</p>
 
       <h2>4. Retention &amp; Security</h2>
